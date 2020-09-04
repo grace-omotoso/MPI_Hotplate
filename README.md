@@ -1,5 +1,6 @@
 # MPI_Hotplate
 A program that solves the hotplate problem using MPI.
+
 The hotplate problem requires computing a solution for the steady
 state heat equation in a 2D rectangular region.  This simple problem
 is representative of a wide variety of problems which use a rectangular
