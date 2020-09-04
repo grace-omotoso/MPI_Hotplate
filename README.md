@@ -1,17 +1,9 @@
 # MPI_Hotplate
-A program that solves the hotplate problem using MPI.
+A program that solves the hotplate problem in a parallel fashion using MPI.
 
 The hotplate problem requires computing a solution for the steady
-state heat equation in a 2D rectangular region.  This simple problem
-is representative of a wide variety of problems which use a rectangular
-grid of values and are widely applicable in many areas.
-The physical region, and the boundary conditions, are described by
-this diagram:
+state heat equation in a 2D rectangular region.  
 
-![image1](picture1.png)
-
-
-Note that 0 and 100 are merely sample temperatures.
 A common way to initialize the interior points of the grid is to set them
 all to the average of all the values along the edges.  As the computation
 progresses, the interior points are altered as described below.
@@ -21,8 +13,6 @@ The region is covered with a grid of M by N nodes, and an M by N array
 named W is used to record the temperature.  The correspondence between
 array indices and locations in the region is suggested by giving the
 indices of the four corners:
-
-![image2](picture2.png)
 
 The steady state solution to the discrete heat equation satisfies the
 following condition at an interior grid point:
@@ -46,4 +36,34 @@ successive estimates of the solution will approach zero.  The user will
 specify a value typically called epsilon which is the error tolerance
 used to halt the iteration.  The program will halt when successive iterations
 yield no changes larger than epsilon at any grid point.
+
+### Inputs
+* number of rows in the grid
+* number of columns in the grid
+* top grid temperature (constant)
+* left grid temperature (constant)
+* right grid temperature (constant)
+* bottom grid temperature (constant)
+* epsilon
+
+### Processing
+If the process discussed above is repeated often enough, the difference between
+successive estimates of the solution will approach zero.  The user will
+specify a value typically called epsilon which is the error tolerance
+used to halt the iteration.  The program will halt when successive iterations
+yield no changes larger than epsilon at any grid point.
+
+
+### Output
+To avoid large output, we will display only iterations that has the power of 2 where the the maximum difference is greater than epsilon. A sample is shown below;
+Given
+* num_rows = 500
+* num_cols = 500
+* top_temp = 100
+* left_temp = 200
+* right_temp = 300
+* bottom_temp = 400
+* epsilon = 0.01
+
+![output](output.png)
 
