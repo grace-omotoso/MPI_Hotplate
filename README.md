@@ -55,7 +55,7 @@ yield no changes larger than epsilon at any grid point.
 
 
 ### Output
-To avoid large output, we will display only iterations that has the power of 2 where the the maximum difference is greater than epsilon. A sample is shown below;
+To avoid large output, we will display only iterations that has the power of 2 where the the maximum difference is greater than epsilon and the last iteration before a value smaller than epsilon is attained.  A sample is shown below;
 Given
 * num_rows = 500
 * num_cols = 500
